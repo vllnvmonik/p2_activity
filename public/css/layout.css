@@ -151,3 +151,11 @@
     right: 100px;
     bottom: 50px;
 }
+
+.login-registration{
+    margin-top: 20px;
+}
+.login-registration a{
+    text-decoration: none;
+    color: #000000;
+}
