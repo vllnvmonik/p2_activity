@@ -105,3 +105,49 @@
     left: 50%;
     transform: translate(-50%, -50%);
 }
+
+/*inavalid credential alert box */
+.alert {
+    padding: 20px;
+    background-color: #000000;
+    color: white;
+    width: 500px;
+    margin: 10px auto;
+}
+.closebtn {
+    margin-left: 15px;
+    color: white;
+    font-weight: bold;
+    float: right;
+    font-size: 22px;
+    line-height: 20px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+.closebtn:hover {
+    color: black;
+}
+
+.logoutbtn{
+    border-radius: 5px;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    border: none;
+    position: absolute;
+    right: 220px;
+    bottom: 50px;
+}
+.resetbtn{
+    border-radius: 5px;
+    width: 100px;
+    height: 50px;
+    text-align: center;
+    color: rgb(0, 0, 0);
+    border: none;
+    position: absolute;
+    right: 100px;
+    bottom: 50px;
+}
