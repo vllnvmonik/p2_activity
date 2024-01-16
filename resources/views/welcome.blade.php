@@ -9,7 +9,7 @@
         <button class="logoutbtn">Logout</button>
     </a>
 
-    <a>
+    <a href="{{ route('forget.password') }}">
         <button class="resetbtn">Reset Password</button>
     </a>
 @endsection
