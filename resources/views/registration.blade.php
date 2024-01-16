@@ -28,7 +28,7 @@
     </div>
 </div>
 
-@if($errors->any() || session()->has('invalid'))
+@if($errors->any() || session()->has('alert'))
 <div class="alert">
     <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
     
@@ -36,8 +36,8 @@
         {{ $error }}
     @endforeach
 
-    @if(session()->has('invalid'))
-        {{ session('invalid') }}
+    @if(session()->has('alert'))
+        {{ session('alert') }}
     @endif
 </div>
 @endif

@@ -14,13 +14,14 @@
                 <input type="password" name="password" class="password" id="password" required>
                 <label for="password"> Password </label>
             </div>
+            <a class="forgot-password" href="{{ route('forget.password') }}">Forgot Password?</a>
             <button type="submit" class="btn"> Login </button>
         </form>
         <p class="login-registration">Don't have an account? <a href="{{ route('registration') }}">Register</a></p>
     </div>
 </div>
 
-@if($errors->any() || session()->has('invalid'))
+@if($errors->any() || session()->has('alert'))
     <div class="alert">
         <span class="closebtn" onclick="this.parentElement.style.display='none';">&times;</span>
         
@@ -28,8 +29,8 @@
             {{ $error }}
         @endforeach
 
-        @if(session()->has('invalid'))
-            {{ session('invalid') }}
+        @if(session()->has('alert'))
+            {{ session('alert') }}
         @endif
     </div>
 @endif
