@@ -13,6 +13,7 @@
             </div>
             <button type="submit" class="btn"> Send Verification </button>
         </form>
+        <p class="login-registration"><a href="{{ route('login') }}"> <-- Go back</a></p>
     </div>
 </div>
 

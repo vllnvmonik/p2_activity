@@ -7,7 +7,7 @@
 }
 .wrapper {
     margin: auto;
-    margin-top: 120px;
+    margin-top: 230px;
     position: relative;
     width: 380px;
     height: 400px;
@@ -24,7 +24,7 @@
 }
 
 .forget{
-    height: 300px;
+    height: 320px;
 }
 .forgot-password{
     text-decoration: none;
