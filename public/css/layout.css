@@ -17,18 +17,30 @@
     box-shadow: 0 0 10px #d4d4d4;
     display: flex;
     justify-content: center;
-    align-items: center;
+
 }
 .registration{
     height: 500px;
-    margin-top: 70px;
-
 }
 
+.forget{
+    height: 300px;
+}
+.forgot-password{
+    text-decoration: none;
+    color: #000000;
+}
+.note{
+    text-align: center;
+    margin-top: 20px;
+}
 .wrapper form-box {
     width: 100%;
     padding: 40px;
     align-items: center;
+}
+.form-box{
+    margin-top: 50px;
 }
 
 .wrapper .form-box h2 {
