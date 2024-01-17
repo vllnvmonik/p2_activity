@@ -27,7 +27,11 @@ class AuthController extends Controller
         return view('registration');
     }
     function welcome(){
-        return view('welcome');
+        if(Auth::check()){
+            return view('welcome');
+        }else{
+            return redirect(route('login'))->with("alert", "Please log in");
+        }
     }
 
     function loginPost(Request $request){
@@ -97,7 +101,11 @@ class AuthController extends Controller
     }
 
     function resetPassword($token){
-        return view("new-password", compact('token'));
+        if(Auth::check()){
+            return view("new-password", compact('token'));
+        }else{
+            return redirect(route('login'))->with("alert", "Please log in to access the password reset page.");
+        }
     }
 
     function resetPasswordPost(Request $request){
