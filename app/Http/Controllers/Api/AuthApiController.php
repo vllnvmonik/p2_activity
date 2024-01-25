@@ -8,6 +8,10 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
 use Illuminate\Support\Facades\Password;
+use Illuminate\Support\Str;
+use Illuminate\Support\Facades\DB;
+use Illuminate\Auth\Events\PasswordReset;
+
 
 
 use App\Models\User;
@@ -85,8 +89,39 @@ class AuthApiController extends Controller
         ], 200);
     }
 
+    
+    public function resetPassword(Request $request){
+        $validator = Validator::make($request->all(), [
+            'email' => 'required|email',
+            'password' => 'required|min:6|confirmed',
+            'password_confirmation' => 'required|same:password',
+            'token' => 'sometimes',
+        ]);
+        if ($validator->fails()) {
+            return response()->json([
+                'message' => 'Password reset failed',
+                'errors' => $validator->errors(),
+            ], 422);
+        }
 
-    public function resetPassword(){
-        
+        $user = User::where('email', $request->email)->first();
+
+        if (!$user) {
+            return response()->json(['message' => 'User not found'], 404);
+        }
+
+        $token = $request->filled('token') ? $request->token : Str::random(60);
+
+        $user->password = Hash::make($request->password);
+        $user->save();
+
+        DB::table('password_reset_tokens')->updateOrInsert(
+            ['email' => $request->email],
+            ['token' => $token, 'created_at' => now()]
+        );
+
+        event(new PasswordReset($user));
+
+        return response()->json(['message' => 'Password reset successful'], 200);
     }
 }
